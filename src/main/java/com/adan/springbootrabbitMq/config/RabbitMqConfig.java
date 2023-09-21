@@ -18,10 +18,20 @@ public class RabbitMqConfig {
     @Value("${rabbitmq.routingKey.name}")
     private String routingKey;
 
+    @Value("${rabbitmq.jsonqueue.name}")
+    private String jsonQueue;
+
 //create Queue
     @Bean
     public Queue queue(){
         return new Queue(queue);
+    }
+
+    //queue for Json
+
+    @Bean
+    public Queue jsonQueue(){
+        return new Queue(jsonQueue);
     }
 //create exchange
     @Bean
